@@ -332,68 +332,23 @@
       
         
           
-            <h3 id="关于变量提升："><a href="#关于变量提升：" class="headerlink" title="关于变量提升："></a>关于变量提升：</h3><p>先说结论，两者都有变量提升现象，具体如下：</p>
-<ol>
-<li><p>let 的「创建」过程被提升了，但是初始化没有提升。</p>
-</li>
-<li><p>var 的「创建」和「初始化」都被提升了。</p>
-</li>
-</ol>
-<h4 id="let也有变量提升？"><a href="#let也有变量提升？" class="headerlink" title="let也有变量提升？"></a>let也有变量提升？</h4><p><strong>我们首先来看看var声明的<code>创建(create)、初始化(initialize)和赋值(assign)</code>的过程</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+          关于变量提升：先说结论，两者都有变量提升现象，具体如下：
 
-<p>这样定义了一个变量x并赋值为1，这中间的过程如下：</p>
-<ol>
-<li>浏览器找到当前x并创建作用域（如全局变量则为global）。</li>
-<li>找到当前作用域中所有用 var 声明的变量，在这个作用域中<code>创建(create)</code>这些变量</li>
-<li>将变量<code>初始化(initialize)</code>为 undefined。</li>
-<li>执行到x = 1这一行时 将 x 变量<code>赋值(assign)</code>为 1</li>
-</ol>
-<p>也就是说 var 声明会在代码执行之前就<code>创建(create)</code>变量，并将其<code>初始化(initialize)</code>为 undefined。这就解释了为什么在 var x = 1 之前 console.log(x) 会得到 undefined。</p>
-<p><strong>接下来看 let 声明的<code>创建(create)、初始化(initialize)和赋值(assign)</code>过程</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">2</span>  <span class="comment">//Identifier 'x' has already been declared</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  x = <span class="number">2</span></span><br><span class="line">  x <span class="comment">//2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+let 的「创建」过程被提升了，但是初始化没有提升。
 
-<p>下面一个{} 里面的过程如下：</p>
-<ol>
-<li><p>浏览器找到x并创建作用域（如全局变量则为global）。</p>
-</li>
-<li><p>找到所有用 let 声明的变量，在环境中<code>创建(create)</code>这些变量</p>
-</li>
-<li><p>开始执行代码（注意现在还没有<code>初始化(initialize)</code>）</p>
-</li>
-<li><p>执行到x = 1这一行时，将 x <code>初始化(initialize)</code>为 1（这并不是一次<code>赋值(assign)</code>，如果代码是 let x，就将 x<code>初始化(initialize)</code>为 undefined）</p>
-</li>
-<li><p>执行 x = 2，对 x 进行<code>赋值(assign)</code></p>
-</li>
-</ol>
-<p>这就解释了为什么在 let name 之前使用 name 会报错：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">'Song'</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name) <span class="comment">//ReferenceError:name is not defined</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">'Qian'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+var 的「创建」和「初始化」都被提升了。
 
-<p>原因有两个:</p>
-<ol>
-<li><p>console.log(name) 中的 name 指的是下面的name，而不是全局的 name</p>
-</li>
-<li><p>执行 log 时 name 还没<code>初始化(initialize)</code>，所以不能使用（也就是暂时死区）</p>
-</li>
-</ol>
-<blockquote>
-<p>所谓’暂时死区‘：即只要块级作用域存在let，他所声明的变量就绑定（binding）这个块内，在变量未初始化或赋值前不允许访问。总之，暂时死区的本质就是，只要一进入当前作用域，所使用的变量就已存在，但是不可获取，只有等到声明变量的哪一行代码的出现，在可以获取和使用该变量`</p>
-</blockquote>
-<p><strong>所以显然，let是存在变量提升现象的</strong></p>
-<h4 id="如何理解let-x-x报错之后，再次let-x依然会报错？（知乎问题）"><a href="#如何理解let-x-x报错之后，再次let-x依然会报错？（知乎问题）" class="headerlink" title="如何理解let x = x报错之后，再次let x依然会报错？（知乎问题）"></a>如何理解let x = x报错之后，再次let x依然会报错？（知乎问题）</h4><p>如果 let x 的初始化过程失败了，那么</p>
-<ol>
-<li>x 变量就将永远处于 <code>创建(create)</code>状态。</li>
-<li>再也无法对 x 进行<code>初始化(initialize)</code>了。</li>
-<li>由于 x 无法被<code>初始化(initialize)</code>，所以 x 永远处在暂时死区</li>
-</ol>
-<h3 id="至于const"><a href="#至于const" class="headerlink" title="至于const"></a>至于const</h3><p>const与let唯一不同的一点在于<strong>const一旦使用，就必须同时初始化</strong>，不能先声明，后初始化，这样会报错。</p>
-<h5 id="声明常量时无法修改："><a href="#声明常量时无法修改：" class="headerlink" title="声明常量时无法修改："></a>声明常量时无法修改：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">a = <span class="number">20</span>  <span class="comment">// Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="声明对象时可以修改："><a href="#声明对象时可以修改：" class="headerlink" title="声明对象时可以修改："></a>声明对象时可以修改：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">obj.a = <span class="number">1</span></span><br><span class="line">obj <span class="comment">// &#123;a:1&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>我们可以看到，使用const声明的对象的属性是可以修改。<br>因为Object类型是引用类型。用const声明常量保存的是对象的地址，不可变的是地址，在上面的代码中就是，不能把 b 指向另一个对象。而修改对象的属性，并不会改变对象的地址，因此用const声明对象的属性是可以修改的。数组同理。</p>
-
-          
+let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程
+1var
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/19/深入理解var和let/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
