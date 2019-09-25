@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="#1111111">
+<meta name="description" content="变量赋值在 js 中，变量的赋值分为「传值」和「传址」。 基本数据类型的赋值就是「传值」；而引用类型的变量赋值，实际上是「传址」。 基本数据类型变量的赋值、比较，只是值的赋值、比较，也即栈内存中的数据的拷贝、比较： 12345678let num1 = 1;let num2 = 1;let num3 = num1;num1 === num2; //truenum1 === num3; //true">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深拷贝和浅拷贝">
 <meta property="og:url" content="http://yoursite.com/2019/09/25/深拷贝和浅拷贝/index.html">
 <meta property="og:site_name" content="Song">
-<meta property="og:description" content="#1111111">
+<meta property="og:description" content="变量赋值在 js 中，变量的赋值分为「传值」和「传址」。 基本数据类型的赋值就是「传值」；而引用类型的变量赋值，实际上是「传址」。 基本数据类型变量的赋值、比较，只是值的赋值、比较，也即栈内存中的数据的拷贝、比较： 12345678let num1 = 1;let num2 = 1;let num3 = num1;num1 === num2; //truenum1 === num3; //true">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-25T03:57:22.798Z">
+<meta property="og:updated_time" content="2019-09-25T04:40:52.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深拷贝和浅拷贝">
-<meta name="twitter:description" content="#1111111">
+<meta name="twitter:description" content="变量赋值在 js 中，变量的赋值分为「传值」和「传址」。 基本数据类型的赋值就是「传值」；而引用类型的变量赋值，实际上是「传址」。 基本数据类型变量的赋值、比较，只是值的赋值、比较，也即栈内存中的数据的拷贝、比较： 12345678let num1 = 1;let num2 = 1;let num3 = num1;num1 === num2; //truenum1 === num3; //true">
 
 
 
@@ -331,7 +331,92 @@
       
 
       
-        <p>#1111111</p>
+        <h3 id="变量赋值"><a href="#变量赋值" class="headerlink" title="变量赋值"></a>变量赋值</h3><p>在 js 中，变量的赋值分为「传值」和「传址」。</p>
+<p>基本数据类型的赋值就是「传值」；而引用类型的变量赋值，实际上是「传址」。</p>
+<p>基本数据类型变量的赋值、比较，只是值的赋值、比较，也即栈内存中的数据的拷贝、比较：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> num3 = num1;</span><br><span class="line">num1 === num2; <span class="comment">//true</span></span><br><span class="line">num1 === num3; <span class="comment">//true</span></span><br><span class="line">num1 = <span class="number">2</span>;</span><br><span class="line">num1 === num2; <span class="comment">//false</span></span><br><span class="line">num1 === num3; <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p>而引用数据类型变量的赋值、比较，只是存于栈内存中的堆内存地址的拷贝、比较：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> arr3 = arr1;</span><br><span class="line">arr1 === arr2; <span class="comment">// false</span></span><br><span class="line">arr1 === arr3; <span class="comment">// true</span></span><br><span class="line">arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr1 === arr2; <span class="comment">// false</span></span><br><span class="line">arr1 === arr3; <span class="comment">// false 这里因为arr1重新被赋值过一次，因此修改内存来存放arr1，因此arr1和arr3实际指向的堆内存地址不一样</span></span><br></pre></td></tr></table></figure>
+
+<p>把两者放在一起看：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">c</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//&#123;c:1&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">c</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">a.c = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//&#123;c:2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>代码运行过程中堆栈内存的变化如下：</p>
+<table>
+<thead>
+<tr>
+<th>栈</th>
+<th>堆</th>
+<th>常量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a，b</td>
+<td>{c:1}</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>栈</th>
+<th>堆</th>
+<th>常量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>b</td>
+<td>{c:1}</td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>栈</th>
+<th>堆</th>
+<th>常量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a，b</td>
+<td>[{object}]</td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td></td>
+<td>1</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>栈</th>
+<th>堆</th>
+<th>常量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a，b</td>
+<td>[{object}]</td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td></td>
+<td>2</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -416,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -478,6 +572,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量赋值"><span class="nav-number">1.</span> <span class="nav-text">变量赋值</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
