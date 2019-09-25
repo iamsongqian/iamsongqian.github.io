@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  k这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域">
+<meta name="description" content="&amp;#x5173;&amp;#x4E8E;&amp;#x53D8;&amp;#x91CF;&amp;#x63D0;&amp;#x5347;&amp;#xFF1A;&amp;#x5148;&amp;#x8BF4;&amp;#x7ED3;&amp;#x8BBA;&amp;#xFF0C;&amp;#x4E24;&amp;#x8005;&amp;#x90FD;&amp;#x6709;&amp;#x53D8;&amp;#x91CF;&amp;#x63D0;&amp;#x5347;&amp;#x73B0;&amp;#x8C61;&amp;#xFF0C;&amp;#x5177;&amp;#x4F53;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解var和let">
 <meta property="og:url" content="http://iamsongqian.github.io/2019/06/19/深入理解var和let/index.html">
 <meta property="og:site_name" content="Song">
-<meta property="og:description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  k这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域">
+<meta property="og:description" content="&amp;#x5173;&amp;#x4E8E;&amp;#x53D8;&amp;#x91CF;&amp;#x63D0;&amp;#x5347;&amp;#xFF1A;&amp;#x5148;&amp;#x8BF4;&amp;#x7ED3;&amp;#x8BBA;&amp;#xFF0C;&amp;#x4E24;&amp;#x8005;&amp;#x90FD;&amp;#x6709;&amp;#x53D8;&amp;#x91CF;&amp;#x63D0;&amp;#x5347;&amp;#x73B0;&amp;#x8C61;&amp;#xFF0C;&amp;#x5177;&amp;#x4F53;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-09-25T05:25:11.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解var和let">
-<meta name="twitter:description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  k这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域">
+<meta name="twitter:description" content="&amp;#x5173;&amp;#x4E8E;&amp;#x53D8;&amp;#x91CF;&amp;#x63D0;&amp;#x5347;&amp;#xFF1A;&amp;#x5148;&amp;#x8BF4;&amp;#x7ED3;&amp;#x8BBA;&amp;#xFF0C;&amp;#x4E24;&amp;#x8005;&amp;#x90FD;&amp;#x6709;&amp;#x53D8;&amp;#x91CF;&amp;#x63D0;&amp;#x5347;&amp;#x73B0;&amp;#x8C61;&amp;#xFF0C;&amp;#x5177;&amp;#x4F53;">
 
 
 
@@ -331,66 +331,66 @@
       
 
       
-        <h3 id="关于变量提升："><a href="#关于变量提升：" class="headerlink" title="关于变量提升："></a>关于变量提升：</h3><p>先说结论，两者都有变量提升现象，具体如下：</p>
+        <h3 id="&#x5173;&#x4E8E;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1A;"><a href="#&#x5173;&#x4E8E;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1A;" class="headerlink" title="&#x5173;&#x4E8E;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1A;"></a>&#x5173;&#x4E8E;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1A;</h3><p>&#x5148;&#x8BF4;&#x7ED3;&#x8BBA;&#xFF0C;&#x4E24;&#x8005;&#x90FD;&#x6709;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x73B0;&#x8C61;&#xFF0C;&#x5177;&#x4F53;&#x5982;&#x4E0B;&#xFF1A;</p>
 <ol>
-<li><p>let 的「创建」过程被提升了，但是初始化没有提升。</p>
+<li><p>let &#x7684;&#x300C;&#x521B;&#x5EFA;&#x300D;&#x8FC7;&#x7A0B;&#x88AB;&#x63D0;&#x5347;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x521D;&#x59CB;&#x5316;&#x6CA1;&#x6709;&#x63D0;&#x5347;&#x3002;</p>
 </li>
-<li><p>var 的「创建」和「初始化」都被提升了。</p>
+<li><p>var &#x7684;&#x300C;&#x521B;&#x5EFA;&#x300D;&#x548C;&#x300C;&#x521D;&#x59CB;&#x5316;&#x300D;&#x90FD;&#x88AB;&#x63D0;&#x5347;&#x4E86;&#x3002;</p>
 </li>
 </ol>
-<h4 id="let也有变量提升？"><a href="#let也有变量提升？" class="headerlink" title="let也有变量提升？"></a>let也有变量提升？</h4><p><strong>我们首先来看看var声明的<code>创建(create)、初始化(initialize)和赋值(assign)</code>的过程</strong></p>
+<h4 id="let&#x4E5F;&#x6709;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1F;"><a href="#let&#x4E5F;&#x6709;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1F;" class="headerlink" title="let&#x4E5F;&#x6709;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1F;"></a>let&#x4E5F;&#x6709;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1F;</h4><p><strong>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6765;&#x770B;&#x770B;var&#x58F0;&#x660E;&#x7684;<code>&#x521B;&#x5EFA;(create)&#x3001;&#x521D;&#x59CB;&#x5316;(initialize)&#x548C;&#x8D4B;&#x503C;(assign)</code>&#x7684;&#x8FC7;&#x7A0B;</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
-<p>k<br>这样定义了一个变量x并赋值为1，这中间的过程如下：</p>
+<p>k<br>&#x8FD9;&#x6837;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;x&#x5E76;&#x8D4B;&#x503C;&#x4E3A;1&#xFF0C;&#x8FD9;&#x4E2D;&#x95F4;&#x7684;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
 <ol>
-<li>浏览器找到当前x并创建作用域（如全局变量则为global）。</li>
-<li>找到当前作用域中所有用 var 声明的变量，在这个作用域中<code>创建(create)</code>这些变量</li>
-<li>将变量<code>初始化(initialize)</code>为 undefined。</li>
-<li>执行到x = 1这一行时 将 x 变量<code>赋值(assign)</code>为 1</li>
+<li>&#x6D4F;&#x89C8;&#x5668;&#x627E;&#x5230;&#x5F53;&#x524D;x&#x5E76;&#x521B;&#x5EFA;&#x4F5C;&#x7528;&#x57DF;&#xFF08;&#x5982;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x5219;&#x4E3A;global&#xFF09;&#x3002;</li>
+<li>&#x627E;&#x5230;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x6240;&#x6709;&#x7528; var &#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;<code>&#x521B;&#x5EFA;(create)</code>&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;</li>
+<li>&#x5C06;&#x53D8;&#x91CF;<code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#x4E3A; undefined&#x3002;</li>
+<li>&#x6267;&#x884C;&#x5230;x = 1&#x8FD9;&#x4E00;&#x884C;&#x65F6; &#x5C06; x &#x53D8;&#x91CF;<code>&#x8D4B;&#x503C;(assign)</code>&#x4E3A; 1</li>
 </ol>
-<p>也就是说 var 声明会在代码执行之前就<code>创建(create)</code>变量，并将其<code>初始化(initialize)</code>为 undefined。这就解释了为什么在 var x = 1 之前 console.log(x) 会得到 undefined。</p>
-<p><strong>接下来看 let 声明的<code>创建(create)、初始化(initialize)和赋值(assign)</code>过程</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">2</span>  <span class="comment">//Identifier 'x' has already been declared</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  x = <span class="number">2</span></span><br><span class="line">  x <span class="comment">//2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4; var &#x58F0;&#x660E;&#x4F1A;&#x5728;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x5C31;<code>&#x521B;&#x5EFA;(create)</code>&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x5C06;&#x5176;<code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#x4E3A; undefined&#x3002;&#x8FD9;&#x5C31;&#x89E3;&#x91CA;&#x4E86;&#x4E3A;&#x4EC0;&#x4E48;&#x5728; var x = 1 &#x4E4B;&#x524D; console.log(x) &#x4F1A;&#x5F97;&#x5230; undefined&#x3002;</p>
+<p><strong>&#x63A5;&#x4E0B;&#x6765;&#x770B; let &#x58F0;&#x660E;&#x7684;<code>&#x521B;&#x5EFA;(create)&#x3001;&#x521D;&#x59CB;&#x5316;(initialize)&#x548C;&#x8D4B;&#x503C;(assign)</code>&#x8FC7;&#x7A0B;</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">2</span>  <span class="comment">//Identifier &apos;x&apos; has already been declared</span></span><br><span class="line">}</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  x = <span class="number">2</span></span><br><span class="line">  x <span class="comment">//2</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
-<p>下面一个{} 里面的过程如下：</p>
+<p>&#x4E0B;&#x9762;&#x4E00;&#x4E2A;{} &#x91CC;&#x9762;&#x7684;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
 <ol>
-<li><p>浏览器找到x并创建作用域（如全局变量则为global）。</p>
+<li><p>&#x6D4F;&#x89C8;&#x5668;&#x627E;&#x5230;x&#x5E76;&#x521B;&#x5EFA;&#x4F5C;&#x7528;&#x57DF;&#xFF08;&#x5982;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x5219;&#x4E3A;global&#xFF09;&#x3002;</p>
 </li>
-<li><p>找到所有用 let 声明的变量，在环境中<code>创建(create)</code>这些变量</p>
+<li><p>&#x627E;&#x5230;&#x6240;&#x6709;&#x7528; let &#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x73AF;&#x5883;&#x4E2D;<code>&#x521B;&#x5EFA;(create)</code>&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;</p>
 </li>
-<li><p>开始执行代码（注意现在还没有<code>初始化(initialize)</code>）</p>
+<li><p>&#x5F00;&#x59CB;&#x6267;&#x884C;&#x4EE3;&#x7801;&#xFF08;&#x6CE8;&#x610F;&#x73B0;&#x5728;&#x8FD8;&#x6CA1;&#x6709;<code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#xFF09;</p>
 </li>
-<li><p>执行到x = 1这一行时，将 x <code>初始化(initialize)</code>为 1（这并不是一次<code>赋值(assign)</code>，如果代码是 let x，就将 x<code>初始化(initialize)</code>为 undefined）</p>
+<li><p>&#x6267;&#x884C;&#x5230;x = 1&#x8FD9;&#x4E00;&#x884C;&#x65F6;&#xFF0C;&#x5C06; x <code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#x4E3A; 1&#xFF08;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x6B21;<code>&#x8D4B;&#x503C;(assign)</code>&#xFF0C;&#x5982;&#x679C;&#x4EE3;&#x7801;&#x662F; let x&#xFF0C;&#x5C31;&#x5C06; x<code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#x4E3A; undefined&#xFF09;</p>
 </li>
-<li><p>执行 x = 2，对 x 进行<code>赋值(assign)</code></p>
+<li><p>&#x6267;&#x884C; x = 2&#xFF0C;&#x5BF9; x &#x8FDB;&#x884C;<code>&#x8D4B;&#x503C;(assign)</code></p>
 </li>
 </ol>
-<p>这就解释了为什么在 let name 之前使用 name 会报错：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">'Song'</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name) <span class="comment">//ReferenceError:name is not defined</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">'Qian'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x5C31;&#x89E3;&#x91CA;&#x4E86;&#x4E3A;&#x4EC0;&#x4E48;&#x5728; let name &#x4E4B;&#x524D;&#x4F7F;&#x7528; name &#x4F1A;&#x62A5;&#x9519;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&apos;Song&apos;</span></span><br><span class="line">{</span><br><span class="line">  <span class="built_in">console</span>.log(name) <span class="comment">//ReferenceError:name is not defined</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">&apos;Qian&apos;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
-<p>原因有两个:</p>
+<p>&#x539F;&#x56E0;&#x6709;&#x4E24;&#x4E2A;:</p>
 <ol>
-<li><p>console.log(name) 中的 name 指的是下面的name，而不是全局的 name</p>
+<li><p>console.log(name) &#x4E2D;&#x7684; name &#x6307;&#x7684;&#x662F;&#x4E0B;&#x9762;&#x7684;name&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5168;&#x5C40;&#x7684; name</p>
 </li>
-<li><p>执行 log 时 name 还没<code>初始化(initialize)</code>，所以不能使用（也就是暂时死区）</p>
+<li><p>&#x6267;&#x884C; log &#x65F6; name &#x8FD8;&#x6CA1;<code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x6682;&#x65F6;&#x6B7B;&#x533A;&#xFF09;</p>
 </li>
 </ol>
 <blockquote>
-<p>所谓’暂时死区‘：即只要块级作用域存在let，他所声明的变量就绑定（binding）这个块内，在变量未初始化或赋值前不允许访问。总之，暂时死区的本质就是，只要一进入当前作用域，所使用的变量就已存在，但是不可获取，只有等到声明变量的哪一行代码的出现，在可以获取和使用该变量`</p>
+<p>&#x6240;&#x8C13;&#x2019;&#x6682;&#x65F6;&#x6B7B;&#x533A;&#x2018;&#xFF1A;&#x5373;&#x53EA;&#x8981;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;&#x5B58;&#x5728;let&#xFF0C;&#x4ED6;&#x6240;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x5C31;&#x7ED1;&#x5B9A;&#xFF08;binding&#xFF09;&#x8FD9;&#x4E2A;&#x5757;&#x5185;&#xFF0C;&#x5728;&#x53D8;&#x91CF;&#x672A;&#x521D;&#x59CB;&#x5316;&#x6216;&#x8D4B;&#x503C;&#x524D;&#x4E0D;&#x5141;&#x8BB8;&#x8BBF;&#x95EE;&#x3002;&#x603B;&#x4E4B;&#xFF0C;&#x6682;&#x65F6;&#x6B7B;&#x533A;&#x7684;&#x672C;&#x8D28;&#x5C31;&#x662F;&#xFF0C;&#x53EA;&#x8981;&#x4E00;&#x8FDB;&#x5165;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x5C31;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x53EF;&#x83B7;&#x53D6;&#xFF0C;&#x53EA;&#x6709;&#x7B49;&#x5230;&#x58F0;&#x660E;&#x53D8;&#x91CF;&#x7684;&#x54EA;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x51FA;&#x73B0;&#xFF0C;&#x5728;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x548C;&#x4F7F;&#x7528;&#x8BE5;&#x53D8;&#x91CF;`</p>
 </blockquote>
-<p><strong>所以显然，let是存在变量提升现象的</strong></p>
-<h4 id="如何理解let-x-x报错之后，再次let-x依然会报错？（知乎问题）"><a href="#如何理解let-x-x报错之后，再次let-x依然会报错？（知乎问题）" class="headerlink" title="如何理解let x = x报错之后，再次let x依然会报错？（知乎问题）"></a>如何理解let x = x报错之后，再次let x依然会报错？（知乎问题）</h4><p>如果 let x 的初始化过程失败了，那么</p>
+<p><strong>&#x6240;&#x4EE5;&#x663E;&#x7136;&#xFF0C;let&#x662F;&#x5B58;&#x5728;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x73B0;&#x8C61;&#x7684;</strong></p>
+<h4 id="&#x5982;&#x4F55;&#x7406;&#x89E3;let-x-x&#x62A5;&#x9519;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x6B21;let-x&#x4F9D;&#x7136;&#x4F1A;&#x62A5;&#x9519;&#xFF1F;&#xFF08;&#x77E5;&#x4E4E;&#x95EE;&#x9898;&#xFF09;"><a href="#&#x5982;&#x4F55;&#x7406;&#x89E3;let-x-x&#x62A5;&#x9519;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x6B21;let-x&#x4F9D;&#x7136;&#x4F1A;&#x62A5;&#x9519;&#xFF1F;&#xFF08;&#x77E5;&#x4E4E;&#x95EE;&#x9898;&#xFF09;" class="headerlink" title="&#x5982;&#x4F55;&#x7406;&#x89E3;let x = x&#x62A5;&#x9519;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x6B21;let x&#x4F9D;&#x7136;&#x4F1A;&#x62A5;&#x9519;&#xFF1F;&#xFF08;&#x77E5;&#x4E4E;&#x95EE;&#x9898;&#xFF09;"></a>&#x5982;&#x4F55;&#x7406;&#x89E3;let x = x&#x62A5;&#x9519;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x6B21;let x&#x4F9D;&#x7136;&#x4F1A;&#x62A5;&#x9519;&#xFF1F;&#xFF08;&#x77E5;&#x4E4E;&#x95EE;&#x9898;&#xFF09;</h4><p>&#x5982;&#x679C; let x &#x7684;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x5931;&#x8D25;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;</p>
 <ol>
-<li>x 变量就将永远处于 <code>创建(create)</code>状态。</li>
-<li>再也无法对 x 进行<code>初始化(initialize)</code>了。</li>
-<li>由于 x 无法被<code>初始化(initialize)</code>，所以 x 永远处在暂时死区</li>
+<li>x &#x53D8;&#x91CF;&#x5C31;&#x5C06;&#x6C38;&#x8FDC;&#x5904;&#x4E8E; <code>&#x521B;&#x5EFA;(create)</code>&#x72B6;&#x6001;&#x3002;</li>
+<li>&#x518D;&#x4E5F;&#x65E0;&#x6CD5;&#x5BF9; x &#x8FDB;&#x884C;<code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#x4E86;&#x3002;</li>
+<li>&#x7531;&#x4E8E; x &#x65E0;&#x6CD5;&#x88AB;<code>&#x521D;&#x59CB;&#x5316;(initialize)</code>&#xFF0C;&#x6240;&#x4EE5; x &#x6C38;&#x8FDC;&#x5904;&#x5728;&#x6682;&#x65F6;&#x6B7B;&#x533A;</li>
 </ol>
-<h3 id="至于const"><a href="#至于const" class="headerlink" title="至于const"></a>至于const</h3><p>const与let唯一不同的一点在于<strong>const一旦使用，就必须同时初始化</strong>，不能先声明，后初始化，这样会报错。</p>
-<h5 id="声明常量时无法修改："><a href="#声明常量时无法修改：" class="headerlink" title="声明常量时无法修改："></a>声明常量时无法修改：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">a = <span class="number">20</span>  <span class="comment">// Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
+<h3 id="&#x81F3;&#x4E8E;const"><a href="#&#x81F3;&#x4E8E;const" class="headerlink" title="&#x81F3;&#x4E8E;const"></a>&#x81F3;&#x4E8E;const</h3><p>const&#x4E0E;let&#x552F;&#x4E00;&#x4E0D;&#x540C;&#x7684;&#x4E00;&#x70B9;&#x5728;&#x4E8E;<strong>const&#x4E00;&#x65E6;&#x4F7F;&#x7528;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x540C;&#x65F6;&#x521D;&#x59CB;&#x5316;</strong>&#xFF0C;&#x4E0D;&#x80FD;&#x5148;&#x58F0;&#x660E;&#xFF0C;&#x540E;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x62A5;&#x9519;&#x3002;</p>
+<h5 id="&#x58F0;&#x660E;&#x5E38;&#x91CF;&#x65F6;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#xFF1A;"><a href="#&#x58F0;&#x660E;&#x5E38;&#x91CF;&#x65F6;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#xFF1A;" class="headerlink" title="&#x58F0;&#x660E;&#x5E38;&#x91CF;&#x65F6;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#xFF1A;"></a>&#x58F0;&#x660E;&#x5E38;&#x91CF;&#x65F6;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#xFF1A;</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">a = <span class="number">20</span>  <span class="comment">// Assignment to constant variable.</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="声明对象时可以修改："><a href="#声明对象时可以修改：" class="headerlink" title="声明对象时可以修改："></a>声明对象时可以修改：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;</span><br><span class="line">obj.a = <span class="number">1</span></span><br><span class="line">obj <span class="comment">// &#123;a:1&#125;</span></span><br></pre></td></tr></table></figure>
+<h5 id="&#x58F0;&#x660E;&#x5BF9;&#x8C61;&#x65F6;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#xFF1A;"><a href="#&#x58F0;&#x660E;&#x5BF9;&#x8C61;&#x65F6;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#xFF1A;" class="headerlink" title="&#x58F0;&#x660E;&#x5BF9;&#x8C61;&#x65F6;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#xFF1A;"></a>&#x58F0;&#x660E;&#x5BF9;&#x8C61;&#x65F6;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#xFF1A;</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = {}</span><br><span class="line">obj.a = <span class="number">1</span></span><br><span class="line">obj <span class="comment">// {a:1}</span></span><br></pre></td></tr></table></figure>
 
-<p>我们可以看到，使用const声明的对象的属性是可以修改。<br>因为Object类型是引用类型。用const声明常量保存的是对象的地址，不可变的是地址，在上面的代码中就是，不能把 b 指向另一个对象。而修改对象的属性，并不会改变对象的地址，因此用const声明对象的属性是可以修改的。数组同理。</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4F7F;&#x7528;const&#x58F0;&#x660E;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x3002;<br>&#x56E0;&#x4E3A;Object&#x7C7B;&#x578B;&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x3002;&#x7528;const&#x58F0;&#x660E;&#x5E38;&#x91CF;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#x662F;&#x5730;&#x5740;&#xFF0C;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x5C31;&#x662F;&#xFF0C;&#x4E0D;&#x80FD;&#x628A; b &#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;&#x800C;&#x4FEE;&#x6539;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x56E0;&#x6B64;&#x7528;const&#x58F0;&#x660E;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7684;&#x3002;&#x6570;&#x7EC4;&#x540C;&#x7406;&#x3002;</p>
 
       
     </div>
