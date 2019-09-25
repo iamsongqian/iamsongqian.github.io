@@ -86,13 +86,12 @@
 <meta property="og:site_name" content="Song">
 <meta property="og:description" content="变量赋值在 js 中，变量的赋值分为「传值」和「传址」。 基本数据类型的赋值就是「传值」；而引用类型的变量赋值，实际上是「传址」。 基本数据类型变量的赋值、比较，只是值的赋值、比较，也即栈内存中的数据的拷贝、比较： 12345678let num1 = 1;let num2 = 1;let num3 = num1;num1 === num2; //truenum1 === num3; //true">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/.com//1.png">
-<meta property="og:image" content="http://yoursite.com/.com//2.png">
-<meta property="og:updated_time" content="2019-09-25T06:27:24.104Z">
+<meta property="og:image" content="http://yoursite.com/.com//09/25/深拷贝和浅拷贝/1.png">
+<meta property="og:updated_time" content="2019-09-25T06:29:03.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深拷贝和浅拷贝">
 <meta name="twitter:description" content="变量赋值在 js 中，变量的赋值分为「传值」和「传址」。 基本数据类型的赋值就是「传值」；而引用类型的变量赋值，实际上是「传址」。 基本数据类型变量的赋值、比较，只是值的赋值、比较，也即栈内存中的数据的拷贝、比较： 12345678let num1 = 1;let num2 = 1;let num3 = num1;num1 === num2; //truenum1 === num3; //true">
-<meta name="twitter:image" content="http://yoursite.com/.com//1.png">
+<meta name="twitter:image" content="http://yoursite.com/.com//09/25/深拷贝和浅拷贝/1.png">
 
 
 
@@ -345,11 +344,7 @@
 <p>再举个例子并把两者放在一起看：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">c</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//&#123;c:1&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//1.png" alt></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123; <span class="attr">c</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line">a.c = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//&#123;c:2&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/.com//2.png" alt></p>
-
+<p><img src="/.com//09/25/深拷贝和浅拷贝/1.png" title="这是一个新的博客的图片的说明}</p> <figure class=highlight javascript><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br></pre></td><td class=code><pre><span class=line><span class=keyword>let</span> a = &#123; <span class=attr>c</span>: <span class=number>1</span> &#125;;</span><br><span class=line><span class=keyword>let</span> b = a;</span><br><span class=line>a.c = <span class=number>2</span>;</span><br><span class=line><span class=built_in>console</span>.log(b); <span"></p>
       
     </div>
     
