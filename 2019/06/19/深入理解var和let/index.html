@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域（">
+<meta name="description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  k这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解var和let">
 <meta property="og:url" content="http://yoursite.com/2019/06/19/深入理解var和let/index.html">
 <meta property="og:site_name" content="Song">
-<meta property="og:description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域（">
+<meta property="og:description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  k这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-17T09:41:25.864Z">
+<meta property="og:updated_time" content="2019-09-25T05:25:11.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解var和let">
-<meta name="twitter:description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域（">
+<meta name="twitter:description" content="关于变量提升：先说结论，两者都有变量提升现象，具体如下：  let 的「创建」过程被提升了，但是初始化没有提升。  var 的「创建」和「初始化」都被提升了。   let也有变量提升？我们首先来看看var声明的创建(create)、初始化(initialize)和赋值(assign)的过程 1var x = 1  k这样定义了一个变量x并赋值为1，这中间的过程如下：  浏览器找到当前x并创建作用域">
 
 
 
@@ -341,7 +341,7 @@
 <h4 id="let也有变量提升？"><a href="#let也有变量提升？" class="headerlink" title="let也有变量提升？"></a>let也有变量提升？</h4><p><strong>我们首先来看看var声明的<code>创建(create)、初始化(initialize)和赋值(assign)</code>的过程</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
-<p>这样定义了一个变量x并赋值为1，这中间的过程如下：</p>
+<p>k<br>这样定义了一个变量x并赋值为1，这中间的过程如下：</p>
 <ol>
 <li>浏览器找到当前x并创建作用域（如全局变量则为global）。</li>
 <li>找到当前作用域中所有用 var 声明的变量，在这个作用域中<code>创建(create)</code>这些变量</li>
